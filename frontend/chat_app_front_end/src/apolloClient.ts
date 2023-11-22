@@ -52,6 +52,7 @@ const errorLink=onError(({graphQLErrors, operation, forward,})=> {
             return new Observable((observer)=>{
                 refreshToken(client).then((token)=>{
                     console.log("token", token)
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     operation.setContext((previousContext: any)=>({
                         header:{
                             ...previousContext.header,
